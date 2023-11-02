@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "defaultProvider": "jsdelivr",
+  "libraries": [
+  {
+  "provider": "filesystem",
+  "library": "E:\\Programing\\bootstrap\\icons-1.11.1\\font",
+  "destination": "wwwroot/lib/bootstrap/dist/css/icons",
+  "files": [
+    "bootstrap-icons.min.css"
+  ]
+}
+]
+}

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ApplicationRole>
+@{
+    ViewData["Title"] = "Index";
+}
+<style>
+    .searchClass{
+        display:flex;
+        justify-content:center;
+    }
+</style>
+<h1>All Roles</h1>
+<br />
+<a asp-action="Create" class="btn btn-success">
+    Add New Role <i class="bi bi-plus-circle-dotted"></i>
+</a>
+<br />
+<br />
+@if (Model?.Count() > 0)
+{
+    <table class="table table-striped table-hover" style="align-items : center;">
+        <thead>
+            <tr>
+                <th>    </th>
+                <th>@Html.DisplayNameFor(x => x.Name)</th>
+                <th>Date Of Creation</th>
+                <th>Details</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(x => item.Id)</td>
+                    <td>@Html.DisplayFor(x => item.Name)</td>
+                    <td>@Html.DisplayFor(x => item.CreatedAt.Day)-@Html.DisplayFor(x => item.CreatedAt.Month)-@Html.DisplayFor(x => item.CreatedAt.Year)</td>
+
+                    <partial name="_ButtonsPartialView" model="item.Id" />
+                </tr>
+            }
+        </tbody>
+
+    </table>
+}
+else
+{
+    <div class="alert alert-warning">
+        <h3>No Roles Found</h3>
+    </div>
+}
